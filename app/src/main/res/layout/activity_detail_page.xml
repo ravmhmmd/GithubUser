@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="DetailPage"
+    android:background="?attr/colorPrimaryVariant">
+
+    <ProgressBar
+        android:id="@+id/pb_detail_page"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/detailConstraintLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/detailConstraintLayout"
+        android:visibility="gone"
+        android:outlineAmbientShadowColor="@color/white"
+        android:outlineSpotShadowColor="@color/white"/>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detailConstraintLayout"
+        app:tabTextColor="@android:color/white" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabs" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?attr/colorPrimary"
+        android:paddingBottom="10sp"
+        android:visibility="visible">
+
+        <ToggleButton
+            android:id="@+id/fav_toggle"
+            android:layout_marginTop="6dp"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:background="@drawable/favourite_toggle"
+            android:textOff="+ Add to Favorite"
+            android:textOn="Favorite"
+            android:textSize="14dp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+            app:layout_constraintStart_toStartOf="@+id/pc_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/pc_location" />
+
+        <ImageView
+            android:id="@+id/pc_avatar"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.060000002"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/pc_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16sp"
+            android:text="@string/name_placeholder"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="@+id/pc_avatar"
+            app:layout_constraintTop_toBottomOf="@+id/pc_avatar" />
+
+        <TextView
+            android:id="@+id/pc_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username_placeholder"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/pc_name"
+            app:layout_constraintTop_toBottomOf="@+id/pc_name" />
+
+        <TextView
+            android:id="@+id/pc_company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/company_placeholder"
+            android:layout_marginTop="6sp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="visible"
+            app:drawableStartCompat="@drawable/ic_baseline_work_24"
+            app:layout_constraintStart_toStartOf="@+id/pc_username"
+            app:layout_constraintTop_toBottomOf="@+id/pc_username" />
+
+        <TextView
+            android:id="@+id/pc_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/location_placeholder"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="visible"
+            app:drawableStartCompat="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintStart_toStartOf="@+id/pc_company"
+            app:layout_constraintTop_toBottomOf="@+id/pc_company" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="6sp"
+            android:layout_marginEnd="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@+id/pc_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/pc_avatar">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10sp"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="304dp">
+
+                <TextView
+                    android:id="@+id/pc_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="1.5sp"
+                    android:text="@string/followers_placeholder"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="70dp"
+                    tools:layout_editor_absoluteY="325dp" />
+
+                <TextView
+                    android:id="@+id/txt_follower"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="1.5sp"
+                    android:text="@string/followers_placeholder"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:layout_editor_absoluteX="69dp"
+                    tools:layout_editor_absoluteY="359dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10sp"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="304dp">
+
+                <TextView
+                    android:id="@+id/pc_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="1.5sp"
+                    android:text="@string/following_placeholder"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="159dp"
+                    tools:layout_editor_absoluteY="327dp" />
+
+                <TextView
+                    android:id="@+id/txt_following"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="1.5sp"
+                    android:text="@string/following_placeholder"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:layout_editor_absoluteX="156dp"
+                    tools:layout_editor_absoluteY="359dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="10sp"
+                android:gravity="center"
+                android:orientation="vertical"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="304dp">
+
+                <TextView
+                    android:id="@+id/pc_repository"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="1.5sp"
+                    android:text="@string/repository_placeholder"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="255dp"
+                    tools:layout_editor_absoluteY="328dp" />
+
+                <TextView
+                    android:id="@+id/txt_repository"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="1.5sp"
+                    android:text="@string/repository_placeholder"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    tools:layout_editor_absoluteX="250dp"
+                    tools:layout_editor_absoluteY="360dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
